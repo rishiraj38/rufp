@@ -42,7 +42,7 @@ export default function Navbar() {
               href={route.path}
               className={cn(
                 "text-sm font-medium transition duration-300 hover:text-cyan-400",
-                pathname === route.path ? "text-white" : "text-gray-400"
+                pathname === route.path ? "" : "text-gray-400"
               )}
             >
               {route.name}

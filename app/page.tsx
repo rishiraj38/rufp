@@ -101,7 +101,7 @@ export default function Home() {
         </section>
 
         {/* Research Summary */}
-        <section className="py-12 bg-gray-800 rounded-lg mt-12">
+        <section className="py-12 bg-gray-800 rounded-lg mt-12 mb-12">
           <div className="mx-auto max-w-3xl space-y-6 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
               Research Summary

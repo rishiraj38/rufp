@@ -5,223 +5,149 @@ import { AlertTriangle, CheckCircle, Info } from "lucide-react";
 
 export default function FindingsPage() {
   return (
-    <div className="flex flex-col items-center justify-center py-12">
+    <div className="flex flex-col items-center justify-center py-12 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="container max-w-4xl space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent">
           Findings
         </h1>
-        <p className="text-muted-foreground">
+        <p className="text-gray-400 md:text-lg">
           Key insights and discoveries from our systems thinking research
         </p>
       </div>
 
-      <Separator className="my-8" />
+      <Separator className="my-8 border-gray-700" />
 
-      <div className="container max-w-4xl space-y-8">
+      <div className="container max-w-4xl space-y-12">
         <section>
-          <h2 className="text-2xl font-bold mb-4 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-white">
             Key System Archetypes
           </h2>
-          <p className="mb-4 text-center">
+          <p className="mb-4 text-gray-400">
             Our analysis identified three primary system archetypes that explain
             the current transportation dynamics:
           </p>
           <div className="grid gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  Success to the Successful
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-2">
-                  Aviation gets more investment and infrastructure as demand
-                  increases, while rail continues to decline due to neglect.
-                </p>
-                <p className="mb-2">
-                  <strong>Impact:</strong> Creates a self-reinforcing loop where
-                  air travel dominates and rail collapses further.
-                </p>
-                <p>
-                  <strong>Solution:</strong> Rebalance policy and investment
-                  across both sectors to create fair growth opportunities.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  Shifting the Burden
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-2">
-                  Tatkal schemes, superficial upgrades, and booking fixes treat
-                  symptoms without addressing root causes in railways.
-                </p>
-                <p className="mb-2">
-                  <strong>Impact:</strong> Diverts attention from deeper
-                  structural reforms needed in infrastructure, hygiene, and
-                  trust.
-                </p>
-                <p>
-                  <strong>Solution:</strong> Focus on long-term structural fixes
-                  like governance reform, modernization, and accountability.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  Eroding Goals
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-2">
-                  Public expectations of railway quality have diminished over
-                  time due to poor service and lack of improvements.
-                </p>
-                <p className="mb-2">
-                  <strong>Impact:</strong> Leads to systemic apathy and a
-                  normalization of substandard conditions.
-                </p>
-                <p>
-                  <strong>Solution:</strong> Set and enforce higher service
-                  standards and communicate progress transparently to the
-                  public.
-                </p>
-              </CardContent>
-            </Card>
+            {[
+              {
+                title: "Success to the Successful",
+                description:
+                  "Aviation gets more investment and infrastructure as demand increases, while rail continues to decline due to neglect.",
+                impact:
+                  "Creates a self-reinforcing loop where air travel dominates and rail collapses further.",
+                solution:
+                  "Rebalance policy and investment across both sectors to create fair growth opportunities.",
+              },
+              {
+                title: "Shifting the Burden",
+                description:
+                  "Tatkal schemes, superficial upgrades, and booking fixes treat symptoms without addressing root causes in railways.",
+                impact:
+                  "Diverts attention from deeper structural reforms needed in infrastructure, hygiene, and trust.",
+                solution:
+                  "Focus on long-term structural fixes like governance reform, modernization, and accountability.",
+              },
+              {
+                title: "Eroding Goals",
+                description:
+                  "Public expectations of railway quality have diminished over time due to poor service and lack of improvements.",
+                impact:
+                  "Leads to systemic apathy and a normalization of substandard conditions.",
+                solution:
+                  "Set and enforce higher service standards and communicate progress transparently to the public.",
+              },
+            ].map((archetype, index) => (
+              <Card key={index} className="bg-gray-800 border border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold text-white">
+                    {archetype.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-2 text-gray-400">{archetype.description}</p>
+                  <p className="mb-2 text-gray-400">
+                    <strong>Impact:</strong> {archetype.impact}
+                  </p>
+                  <p className="text-gray-400">
+                    <strong>Solution:</strong> {archetype.solution}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-white">
             Proposed Structural-Level Interventions
           </h2>
           <div className="space-y-4">
-            <Alert>
-              <CheckCircle className="h-4 w-4" />
-              <AlertTitle>Rebalance Policy Incentives</AlertTitle>
-              <AlertDescription>
-                Equally prioritize railways in Tier 2/3 connectivity planning
-              </AlertDescription>
-            </Alert>
-            <Alert>
-              <CheckCircle className="h-4 w-4" />
-              <AlertTitle>Rail Infrastructure Overhaul</AlertTitle>
-              <AlertDescription>
-                Modernize tracks, stations, and onboard services
-              </AlertDescription>
-            </Alert>
-            <Alert>
-              <Info className="h-4 w-4" />
-              <AlertTitle>Trust Restoration</AlertTitle>
-              <AlertDescription>
-                Improve cybersecurity, hygiene, and punctuality in railways
-              </AlertDescription>
-            </Alert>
-            <Alert>
-              <Info className="h-4 w-4" />
-              <AlertTitle>Public Narrative Shift</AlertTitle>
-              <AlertDescription>
-                Campaign to revive the social and environmental value of rail
-              </AlertDescription>
-            </Alert>
-            <Alert>
-              <Info className="h-4 w-4" />
-              <AlertTitle>Smart Pricing in Rail</AlertTitle>
-              <AlertDescription>
-                Introduce tiered pricing models to compete with airlines
-              </AlertDescription>
-            </Alert>
-            <Alert>
-              <Info className="h-4 w-4" />
-              <AlertTitle>Feedback-informed Governance</AlertTitle>
-              <AlertDescription>
-                Use CLDs in transport policy planning to balance
-                reinforcing/balancing loops intentionally
-              </AlertDescription>
-            </Alert>
+            {[
+              {
+                title: "Rebalance Policy Incentives",
+                description:
+                  "Equally prioritize railways in Tier 2/3 connectivity planning.",
+                icon: <CheckCircle className="h-4 w-4 text-green-500" />,
+              },
+              {
+                title: "Rail Infrastructure Overhaul",
+                description:
+                  "Modernize tracks, stations, and onboard services.",
+                icon: <CheckCircle className="h-4 w-4 text-green-500" />,
+              },
+              {
+                title: "Trust Restoration",
+                description:
+                  "Improve cybersecurity, hygiene, and punctuality in railways.",
+                icon: <Info className="h-4 w-4 text-blue-500" />,
+              },
+              {
+                title: "Public Narrative Shift",
+                description:
+                  "Campaign to revive the social and environmental value of rail.",
+                icon: <Info className="h-4 w-4 text-blue-500" />,
+              },
+              {
+                title: "Smart Pricing in Rail",
+                description:
+                  "Introduce tiered pricing models to compete with airlines.",
+                icon: <Info className="h-4 w-4 text-blue-500" />,
+              },
+              {
+                title: "Feedback-informed Governance",
+                description:
+                  "Use CLDs in transport policy planning to balance reinforcing/balancing loops intentionally.",
+                icon: <Info className="h-4 w-4 text-blue-500" />,
+              },
+            ].map((intervention, index) => (
+              <Alert key={index} className="bg-gray-800 border border-gray-700">
+                {intervention.icon}
+                <AlertTitle className="text-white">
+                  {intervention.title}
+                </AlertTitle>
+                <AlertDescription className="text-gray-400">
+                  {intervention.description}
+                </AlertDescription>
+              </Alert>
+            ))}
           </div>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 text-center">
-            High-Impact Leverage Points
-          </h2>
-          <p className="mb-4 text-center">
-            Our analysis identified the following high-impact leverage points
-            where interventions could create significant change:
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Passenger Trust in Rail</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Trust drives behavior. Restoring confidence in railways can
-                  shift public preference back to rail, leading to increased
-                  rail usage and better load balancing between transport modes.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Public Perception / Status of Travel Mode</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Status perception fuels the shift to air travel. Reframing
-                  rail as modern and respectable can reverse this trend,
-                  resulting in reduction in unnecessary air travel and improved
-                  utilization of rail.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Government Funding Criteria</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Current investment favors aviation. Changing funding logic to
-                  reward service quality and passenger experience can fix
-                  structural neglect, leading to enhanced rail service,
-                  reinvestment cycles, and increased satisfaction.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Search Pricing Algorithms</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Dynamic pricing impacts affordability and access. Greater
-                  transparency or caps can make air travel more equitable,
-                  resulting in stabilized ticket pricing and demand
-                  rationalization.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold mb-4 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-white">
             Potential Risks and Unintended Consequences
           </h2>
-          <Alert variant="destructive" className="mb-4">
-            <AlertTriangle className="h-4 w-4" />
-            <AlertTitle>Intervention Risks</AlertTitle>
-            <AlertDescription>
+          <Alert
+            variant="destructive"
+            className="bg-gray-800 border border-gray-700 mb-4"
+          >
+            <AlertTriangle className="h-4 w-4 text-red-500" />
+            <AlertTitle className="text-white">Intervention Risks</AlertTitle>
+            <AlertDescription className="text-gray-400">
               Any interventions in complex systems may have unintended
               consequences. Our analysis suggests careful monitoring of:
             </AlertDescription>
           </Alert>
-          <ul className="list-disc pl-6 space-y-2 text-left">
+          <ul className="list-disc pl-6 space-y-2 text-gray-400">
             <li>
               Potential economic impacts on emerging aviation sector in Tier 2/3
               cities
